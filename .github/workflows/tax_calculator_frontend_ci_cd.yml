@@ -89,5 +89,5 @@ jobs:
           - name: Deploy to AWS (Kubernetes)
             run: |
                 kubectl apply -f k8s/aws/app2-tax-calculator/frontend
-                kubectl apply -f k8s/aws/app2-tax-calculator/ingres.yaml
+                kubectl apply -f k8s/aws/app2-tax-calculator/ingress.yaml
 
