@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: service-a
-          image: dcode007/tax-service-a:python-latest
+          image: dcode007/tax-service-a:node-latest
           env:
             - name: TAX_SERVICE_URL
               value: "http://service-b:4000"
