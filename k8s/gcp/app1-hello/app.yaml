@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app1-hello
-          image: dcode007/hello-python:latest
+          image: dcode007/hello-spring:latest
 
           resources:
             limits:
@@ -25,7 +25,7 @@ spec:
               cpu: "250m"
           env:
             - name: ENV_VALUE
-              value: "Hello from app.yaml"
+              value: "Hello from Spring app.yaml"
             - name: DB_PASSWORD
               value: "cGFzc3dvcmQ=" # base64 for 'password'
           # env:
