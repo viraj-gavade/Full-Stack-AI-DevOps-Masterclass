@@ -112,12 +112,11 @@ jobs:
               RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
 
           - name: Set AKS Context
-            uses: azure/k8s-set-context@v3
-            with:
-              method: service-principal
-              cluster-name: ${{ secrets.AZURE_AKS_CLUSTER_NAME }}
-              resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
-      
+            run: |
+              az aks get-credentials \
+                --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+                --name ${{ secrets.AZURE_AKS_CLUSTER_NAME }}
+                
           - name: Verify connection
             run: kubectl get nodes
 
