@@ -127,6 +127,6 @@ jobs:
             run: |
                 kubectl apply -f k8s/azure/app2-tax-calculator/service-a
                 kubectl apply -f k8s/azure/app2-tax-calculator/service-b
-                kubectl apply -f k8s/gazurecp/app2-tax-calculator/frontend
+                kubectl apply -f k8s/azure/app2-tax-calculator/frontend
                 kubectl apply -f k8s/azure/app2-tax-calculator/ingress.yaml
 
