@@ -55,6 +55,6 @@ jobs :
                 context: docker/app1-hello/springboot/hello-spring
                 push: true
                 tags:   |
-                 ${{ secrets.DOCKERHUB_USERNAME }}/hello-spring:latest            
+                 virajjs/hello-spring:latest            
                  
             
