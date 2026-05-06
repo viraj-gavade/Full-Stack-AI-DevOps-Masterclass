@@ -40,7 +40,7 @@ jobs :
 
             - name : Build The Jar File 
               working-directory: docker/app1-hello/springboot/hello-spring
-              run : mvn mvn package -DskipTests
+              run : mvn clean package -DskipTests
 
 
             - name: Login to Docker Hub
