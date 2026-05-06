@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-python
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pythonapp
+  template:
+    metadata:
+      labels:
+        app: pythonapp
+    spec:
+      containers:
+        - name: pythonapp
+          image: embarkx/hello-python
+          env : 
+          - name : ENV_VALUE
+            valueFrom :
+              configMapKeyRef : 
+                name : app-config
+                key : ENV_VALUE
+
+          - name : PORT
+            valueFrom :
+              configMapKeyRef : 
+                name : app-config
+                key : PORT
+
+
+          ports:
+            - containerPort: 80

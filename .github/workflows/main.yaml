@@ -1,0 +1,34 @@
+name: Deply the Java Application
+on : 
+    push : 
+        branches : ["master"]
+jobs : 
+    build-test-java-app :
+        runs-on : ubuntu-latest
+        steps:
+            - name : Checkout the code.
+              uses : actions/checkout@v3
+
+            - name: Install the Java JDK
+              uses: actions/setup-java@v5
+              with:
+                distribution: 'temurin' # See 'Supported distributions' for available options
+                java-version: '21'
+
+            - name : Build and Test (maven)
+              working-directory: docker/app1-hello/springboot/hello-spring
+              run : mvn clean verify -B
+
+            - name : Upload the test results 
+              uses: actions/upload-artifact@v7
+              with :
+                name: artifacts
+                path: docker/app1-hello/springboot/hello-spring/target/surefire-reports
+
+    deploy-java-app-to-docker :
+        runs-on : ubuntu-latest
+        needs: build-test-java-app
+        steps:
+            - name : Hello-run
+              run : echo Hello , World           
+            
