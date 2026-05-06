@@ -27,7 +27,7 @@ __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
 
-# Java / Spring Boot
+# Java / git Boot
 **/target/
 **/build/
 **/.gradle/
