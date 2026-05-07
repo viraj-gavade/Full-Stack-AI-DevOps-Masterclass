@@ -20,6 +20,7 @@ jobs :
               run : npm ci
 
             - name : Run the Test (if any)
+              working-directory: docker/app1-hello/node
               run: npm test --if-present
 
     push-docker-image:
